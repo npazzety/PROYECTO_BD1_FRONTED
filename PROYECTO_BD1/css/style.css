@@ -1,0 +1,588 @@
+body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.left-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.left-bar img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.left-bar .image-caption {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.left-bar .button {
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #dfdfdf;
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+}
+
+.left-bar .button:hover {
+    background-color: #c7c7c7;
+    color: #000000;
+}
+
+.dropdown-menu {
+    margin-left: 20px;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 220px;
+    z-index: 10;
+}
+
+.dropdown-menu .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu .menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu .menu-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.left-bar .section {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+
+.left-bar .section img {
+    width: 5px;
+    height: 5px;
+    margin-right: 15px;
+}
+
+.left-bar .section .section-name {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.left-bar .section:hover {
+    background-color: #e0e0e0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-end-start-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.left-bar .section.active {
+    background-color: rgba(0, 162, 255, 0.247);
+    border: none;
+    color: #000;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-end-start-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.main-content {
+    margin-left: 25%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    flex: 1;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-and-icons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: #ffffff;
+    width: 60%;
+    position: relative;
+}
+
+.search-bar .fa-search {
+    margin-right: 10px;
+}
+
+.search-bar input {
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 13px;
+}
+
+.search-bar .clear-icon {
+    margin-right: 10px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.icon-container {
+    display: flex;
+    gap: 10px;
+    margin-left: 40px;
+    position: absolute;
+    right: 20px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.icon:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+.icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.welcome-message {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.suggestion-container-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.suggestion-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    height: auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.suggestion-container .suggestion-item {
+    display: flex;
+    align-items: center;
+    max-width: 150px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.suggestion-container .suggestion-item:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.suggestion-container .suggestion-item.active {
+    background-color: #c7c7c7;
+    border: none;
+    box-shadow: none;
+}
+
+.suggestion-container .suggestion-item.static {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+.suggestion-container .suggestion-item.static .suggestion-name {
+    font-size: 12px;
+}
+
+.suggestion-container .suggestion-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.suggestion-container .suggestion-item .suggestion-name {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.scrollable-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.files-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 10px; /* Espacio entre los contenedores */
+    max-height: 80vh; /* Ajusta la altura máxima según sea necesario */
+    overflow-y: auto; /* Permite el desplazamiento vertical cuando el contenido excede la altura máxima */
+}
+
+.folders-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 25px; /* Espacio entre los contenedores */
+    margin-right: 70px;
+}
+
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 50px;
+    margin-left: 5px;
+    font-size: 220px;
+    color: gray;
+    height: auto;
+}
+
+.images-grid i {
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.images-grid i:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.small-container {
+    width: 320px; /* Se ajusta al ancho disponible en la cuadrícula */
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+
+.small-container-header {
+    margin-left: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.small-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.header-title {
+    margin-right: 10px;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.small-container-content {
+    margin-top: 20px;
+    width: 100%; /* Se ajusta al ancho disponible en la cuadrícula */
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.small-container-footer {
+    margin-left: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-text {
+    margin-left: 10px;
+    font-size: 8px;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    z-index: 20;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.menu-dropdown .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-dropdown .menu-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.menu-dropdown .menu-item .text {
+    font-size: 14px;
+}
+
+.menu-dropdown .menu-item:nth-child(3n) {
+    border-bottom: 2px solid #000; /* Línea negra */
+}
+
+.menu-dropdown.show {
+    display: block;
+}
+
+.small-container-header .fa-ellipsis-vertical {
+    cursor: pointer;
+}
+
+.small-container-header .fa-ellipsis-vertical:hover {
+    color: #333; /* Color más oscuro al pasar el mouse */
+}
+
+.small-container:hover {
+    background-color: #e0e0e0; /* Color de fondo cuando el mouse pasa sobre el contenedor */
+    border: 1px solid #bbb; /* Agrega un borde más oscuro para mayor visibilidad */
+}
+.small-container-header .fa-ellipsis-vertical {
+    transition: color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.small-container-header .fa-ellipsis-vertical:hover {
+    color: #666; /* Color más oscuro para el ícono al pasar el mouse */
+}
+
+a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto del elemento padre */
+    background: none; /* Elimina cualquier fondo aplicado al enlace */
+    border: none; /* Elimina cualquier borde aplicado al enlace */
+    padding: 0; /* Elimina el relleno por defecto */
+    margin: 0; /* Elimina el margen por defecto */
+    display: inline; /* Asegura que el enlace no afecte el diseño del contenedor */
+}
+
+/* Estilo para el botón de menú en el contenedor de mensajes */
+.message-container {
+    position: relative;
+}
+
+.message-menu-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.message-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.message-dropdown-menu .menu-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.message-dropdown-menu .menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilo para los botones horizontales */
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.menu-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-button:hover {
+    background-color: #d5d6d6;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    position: relative; /* Set relative positioning for the container */
+}
+
+.menu-button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid black;
+
+}
+
+.menu-list {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position the menu directly below the button */
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu-list div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 190px;
+}
+
+.menu-list a:hover {
+    background-color: #f1f1f1;
+}
+
+.menu-button-unit {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+.menu-button-unit:hover {
+    background-color: #d5d6d6;
+}

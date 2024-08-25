@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Tareas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/functions.js" defer></script>
+</head>
+
+<body>
+    <div class="left-bar">
+        <div class="header">
+            <img src="/img/drive.png" alt="Imagen">
+            <span class="image-caption">Drive</span>
+        </div>
+        <button class="button">+ Nuevo</button>
+        <div class="dropdown-menu">
+            <div class="menu-item" >
+                <i class="fa-solid fa-folder-open"></i>
+                <span style="margin-left: 10px;">Carpeta Nueva</span>
+            </div>
+            <div class="menu-item">
+                <i class="fa-solid fa-arrow-up"></i>
+                <span style="margin-left: 15px;">Subir Archivo</span>
+            </div>
+            <div class="menu-item">
+                <i class="fa-solid fa-folder-tree"></i>
+                <span style="margin-left: 10px;">Subir Carpeta</span>
+            </div>
+        </div>
+        <div class="sections">
+            <a href="/Html/index.html" class="section active" id="main-page">
+                <i class="fa-solid fa-house"></i>
+                <span class="section-name">Página principal</span>
+            </a>
+            <a href="/Html/mi_unidad.html" class="section" id="my-drive">
+                <i class="fa-solid fa-box"></i>
+                <span class="section-name">Mi unidad</span>
+            </a>
+            <a href="/Html/computadoras.html" class="section" id="computers">
+                <i class="fa-solid fa-desktop"></i>
+                <span class="section-name">Computadoras</span>
+            </a>
+            <div class="section" id="shared">
+                <i class="fa-solid fa-user-group"></i>
+                <span class="section-name">Compartidos conmigo</span>
+            </div>
+            <a href="/Html/recientes.html" class="section" id="recent">
+                <i class="fa-regular fa-clock"></i>
+                <span class="section-name">Recientes</span>
+            </a>
+            <div class="section" id="starred">
+                <i class="fa-regular fa-star"></i>
+                <span class="section-name">Destacados</span>
+            </div>
+            <a href="/Html/spam.html" class="section" id="spam">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span class="section-name">Spam</span>
+            </a>
+            <div class="section" id="trash">
+                <i class="fa-solid fa-trash-can"></i>
+                <span class="section-name">Papelera</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="search-and-icons">
+            <div class="search-bar">
+                <i style="margin-left: 20px;" class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar en Drive">
+                <div class="clear-icon">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="icon-container">
+                <div class="icon">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="icon">
+                    <img src="/img/perfil.png" alt="Imagen Principal" class="main-image" style="width: 100%; height: 100%; border-radius: 30px;">
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <div style="font-size: 30px;">
+                Computadoras
+            </div>
+            <div>
+                <img src="/img/computadora.jpg" style="width: 600px; margin-left: 200px;">
+            </div>
+            <div style="margin-left: 300px; font-size: 20px;">
+                No hay carpetas sincronizandose con Drive
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

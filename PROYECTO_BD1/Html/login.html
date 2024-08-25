@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            width: 600px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .left-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            width: 50%;
+        }
+        .left-side img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .left-side .image-caption {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            width: 50%;
+        }
+        .right-side form {
+            display: flex;
+            flex-direction: column;
+        }
+        .right-side input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .right-side button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .right-side button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="/img/drive.png" alt="Imagen">
+        </div>
+        <div class="right-side">
+            <form action="/Html/index.html" method="get">
+                <input type="email" name="email" placeholder="Correo" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Acceder</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+

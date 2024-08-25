@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Barra de Tareas</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .left-bar {
+            width: 18%;
+            background-color: #ffffff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Permite el desplazamiento si el contenido excede el tamaño del contenedor */
+        }
+        .left-bar img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .left-bar .image-caption {
+            display: inline-block;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+        .left-bar .button {
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .left-bar .button:hover {
+            background-color: #0056b3;
+        }
+        .left-bar .section {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .left-bar .section img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .left-bar .section .section-name {
+            font-size: 16px;
+        }
+        .main-content {
+            width: 75%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative; /* Necesario para posicionar los iconos relativos a este contenedor */
+        }
+        .search-and-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 10px;
+            background-color: #ffffff;
+            width: 60%; /* Ajusta el ancho de la barra de búsqueda */
+        }
+        .search-bar img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 16px;
+        }
+        .icon-container {
+            display: flex;
+            gap: 10px;
+            margin-left: 50px; /* Espacio amplio entre la barra de búsqueda y los iconos */
+            margin-right: 0; /* Alinea los iconos al borde derecho del contenedor principal */
+            position: absolute;
+            right: -80px; /* Alinea los iconos al borde derecho del contenedor principal */
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .icon:hover {
+            background-color: #e0e0e0; /* Color de fondo al pasar el ratón */
+            border-color: #ccc; /* Color del borde al pasar el ratón */
+        }
+        .icon img {
+            width: 20px;
+            height: 20px;
+        }
+        .welcome-message {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .suggestion-container-wrapper {
+            width: 10%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start; /* Alinea los elementos al inicio */
+            gap: 10px;
+        }
+        .suggestion-container {
+            display: flex;
+            flex-direction: row; /* Alinea los elementos horizontalmente */
+            gap: 10px; /* Espacio entre los elementos */
+            height: auto;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .suggestion-container .suggestion-item {
+            display: flex;
+            align-items: center;
+            max-width: 100px; /* Ajusta el tamaño máximo de los contenedores */
+            background-color: #ffffff; /* Color de fondo por defecto */
+            border: 1px solid #ddd; /* Borde del contenedor */
+            border-radius: 8px; /* Bordes redondeados */
+            padding: 10px; /* Espacio interno */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para el color de fondo y la sombra */
+            cursor: pointer; /* Cambia el cursor para que parezca un botón */
+        }
+        .suggestion-container .suggestion-item:hover {
+            background-color: #e0e0e0; /* Color de fondo al pasar el ratón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+        }
+        .suggestion-container .suggestion-item.static {
+            background-color: transparent; /* Color de fondo estático */
+            border: none; /* Elimina el borde */
+            box-shadow: none; /* Elimina la sombra */
+            cursor: default; /* Elimina el cursor de mano */
+        }
+        .suggestion-container .suggestion-item.static .suggestion-name {
+            font-size: 14px;
+        }
+        .suggestion-container .suggestion-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .suggestion-container .suggestion-item .suggestion-name {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-bar">
+        <div class="header">
+
+        </div>
+        <button class="button">+ Nuevo</button>
+        <div class="sections">
+            <div class="section">
+
+            </div>
+            <div class="section">
+
+            </div>
+            <div class="section">
+
+            </div>
+            <div class="section">
+
+            </div>
+            <div class="section">
+            </div>
+            <div class="section">
+
+            </div>
+            <div class="section">
+
+            </div>
+            <div class="section">
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="main-content">
+        <div class="search-and-icons">
+            <div class="search-bar">
+ 
+                <input type="text" placeholder="Buscar en Drive">
+            </div>
+            <div class="icon-container">
+                <div class="icon">
+  
+                </div>
+                <div class="icon">
+
+                </div>
+            </div>
+        </div>
+        <div class="welcome-message">Te damos la bienvenida a Drive</div>
+        <div class="suggestion-container-wrapper">
+            <div class="suggestion-container">
+                <div class="suggestion-item static">
+                    <span class="suggestion-name">Sugerido</span>
+                </div>
+                <div class="suggestion-item">
+ 
+                    <span class="suggestion-name">Archivos</span>
+                </div>
+                <div class="suggestion-item">
+
+                    <span class="suggestion-name">Carpetas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
